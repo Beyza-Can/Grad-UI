@@ -1,0 +1,612 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>MR</title>
+  <link rel="shortcut icon" type="image/png" href="../assets/images/logos/favicon.png" />
+  <link rel="stylesheet" href="../assets/css/styles.min.css" />
+  <link rel="stylesheet" href="../assets/css/form.css" />
+
+  <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.11.0/css/jquery.dataTables.min.css">
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"/>
+  <title>rapor</title>
+</head>
+
+<body>
+  <!--  Body Wrapper -->
+  <div class="page-wrapper" id="main-wrapper" data-layout="vertical" data-navbarbg="skin6" data-sidebartype="full"
+    data-sidebar-position="fixed" data-header-position="fixed">
+    <!-- Sidebar Start -->
+    <aside class="left-sidebar">
+      <!-- Sidebar scroll-->
+      <div>
+        <div class="brand-logo d-flex align-items-center justify-content-between">
+          <a href="./index_.html" class="text-nowrap logo-img">
+            <img src="../assets/images/logos/dark-logo.svg" width="180" alt="" />
+          </a>
+          <div class="close-btn d-xl-none d-block sidebartoggler cursor-pointer" id="sidebarCollapse">
+            <i class="ti ti-x fs-8"></i>
+          </div>
+        </div>
+        <!-- Sidebar navigation-->
+        <nav class="sidebar-nav scroll-sidebar" data-simplebar="">
+          <ul id="sidebarnav">
+            <li class="nav-small-cap">
+              <i class="ti ti-dots nav-small-cap-icon fs-4"></i>
+              <span class="hide-menu">Home</span>
+            </li>
+            <li class="sidebar-item">
+              <a class="sidebar-link" href="./index_.html" aria-expanded="false">
+                <span>
+                  <i class="ti ti-layout-dashboard"></i>
+                </span>
+                <span class="hide-menu">Dashboard</span>
+              </a>
+            </li>
+            <li class="nav-small-cap">
+              <i class="ti ti-dots nav-small-cap-icon fs-4"></i>
+              <span class="hide-menu">BT</span>
+            </li>
+            <li class="sidebar-item">
+              <a class="sidebar-link" href="./batin-bt.html" aria-expanded="false">
+                <span>
+                  <i class="ti ti-file-description"></i>
+                </span>
+                <span class="hide-menu">Tüm Batın BT</span>
+              </a>
+            </li>
+            <li class="sidebar-item">
+              <a class="sidebar-link" href="./toraks-bt.html" aria-expanded="false">
+                <span>
+                  <i class="ti ti-file-description"></i>
+                </span>
+                <span class="hide-menu">Toraks BT</span>
+              </a>
+            </li>
+            <li class="sidebar-item">
+              <a class="sidebar-link" href="./bbt-normal.html" aria-expanded="false">
+                <span>
+                  <i class="ti ti-file-description"></i>
+                </span>
+                <span class="hide-menu">BBT Normal Format</span>
+              </a>
+            </li>
+            <li class="nav-small-cap">
+              <i class="ti ti-dots nav-small-cap-icon fs-4"></i>
+              <span class="hide-menu">MR</span>
+            </li>
+            <li class="sidebar-item">
+              <a class="sidebar-link" href="./servikal-mr.html" aria-expanded="false">
+                <span>
+                  <i class="ti ti-file-description"></i>
+                </span>
+                <span class="hide-menu">Servikal MR</span>
+              </a>
+            </li>
+            <li class="sidebar-item">
+              <a class="sidebar-link" href="./beyin-mr.html" aria-expanded="false">
+                <span>
+                  <i class="ti ti-file-description"></i>
+                </span>
+                <span class="hide-menu">Beyin MR</span>
+              </a>
+            </li>
+            <li class="sidebar-item">
+              <a class="sidebar-link" href="./diz-mr.html" aria-expanded="false">
+                <span>
+                  <i class="ti ti-file-description"></i>
+                </span>
+                <span class="hide-menu">Diz MR</span>
+              </a>
+            </li>
+            <li class="sidebar-item">
+              <a class="sidebar-link" href="./lomber-mr.html" aria-expanded="false">
+                <span>
+                  <i class="ti ti-file-description"></i>
+                </span>
+                <span class="hide-menu">Lomber MR</span>
+              </a>
+            </li>
+            <li class="sidebar-item">
+              <a class="sidebar-link" href="./torakal-mr.html" aria-expanded="false">
+                <span>
+                  <i class="ti ti-file-description"></i>
+                </span>
+                <span class="hide-menu">Torakal MR</span>
+              </a>
+            </li>
+            <li class="nav-small-cap">
+              <i class="ti ti-dots nav-small-cap-icon fs-4"></i>
+              <span class="hide-menu">FILES</span>
+            </li>
+            <li class="sidebar-item">
+              <a class="sidebar-link" href="./files.html" aria-expanded="false">
+                <span>
+                  <i class="ti ti-file-description"></i>
+                </span>
+                <span class="hide-menu">File Manager</span>
+              </a>
+            </li>
+            <li class="nav-small-cap">
+              <i class="ti ti-dots nav-small-cap-icon fs-4"></i>
+              <span class="hide-menu">EXİT</span>
+            </li>
+            <li class="sidebar-item">
+              <a class="sidebar-link" href="./authentication-login.html" aria-expanded="false">
+                <span>
+                  <i class="ti ti-login"></i>
+                </span>
+                <span class="hide-menu">Logout</span>
+              </a>
+            </li>
+            
+            
+          </ul>
+        </nav>
+        <!-- End Sidebar navigation -->
+      </div>
+      <!-- End Sidebar scroll-->
+    </aside>
+    <!--  Sidebar End -->
+    <!--  Main wrapper -->
+    <div class="body-wrapper">
+      <!--  Header Start -->
+      <header class="app-header">
+        <nav class="navbar navbar-expand-lg navbar-light">
+          <ul class="navbar-nav">
+            <li class="nav-item d-block d-xl-none">
+              <a class="nav-link sidebartoggler nav-icon-hover" id="headerCollapse" href="javascript:void(0)">
+                <i class="ti ti-menu-2"></i>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link nav-icon-hover" href="javascript:void(0)">
+              </a>
+            </li>
+          </ul>
+          <div class="navbar-collapse justify-content-end px-0" id="navbarNav">
+            <ul class="navbar-nav flex-row ms-auto align-items-center justify-content-end">
+              <li class="nav-item dropdown">
+                <a class="nav-link nav-icon-hover" href="javascript:void(0)" id="drop2" data-bs-toggle="dropdown"
+                  aria-expanded="false">
+                  <img src="../assets/images/profile/user-1.jpg" alt="" width="35" height="35" class="rounded-circle">
+                </a>
+                <div class="dropdown-menu dropdown-menu-end dropdown-menu-animate-up" aria-labelledby="drop2">
+                  <div class="message-body">
+                    <a href="javascript:void(0)" class="d-flex align-items-center gap-2 dropdown-item">
+                      <i class="ti ti-user fs-6"></i>
+                      <p class="mb-0 fs-3">My Profile</p>
+                    </a>
+                    <a href="javascript:void(0)" class="d-flex align-items-center gap-2 dropdown-item">
+                      <i class="ti ti-mail fs-6"></i>
+                      <p class="mb-0 fs-3">My Account</p>
+                    </a>
+                    <a href="javascript:void(0)" class="d-flex align-items-center gap-2 dropdown-item">
+                      <i class="ti ti-list-check fs-6"></i>
+                      <p class="mb-0 fs-3">My Task</p>
+                    </a>
+                    <a href="./authentication-login.html" class="btn btn-outline-primary mx-3 mt-2 d-block">Logout</a>
+                  </div>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </nav>
+      </header>
+      <!--  Header End -->
+      <div class="container-fluid">
+        <div class="card">
+          <div class="card-body">
+            <h5 class="card-title fw-semibold mb-4">Create a Brain MR Report</h5>
+          </div>
+          <div class="formContainer"id="formContainer">  
+            <form id="userForm" th:action="@{/saveFormData}" method="post"class="contact" action="">
+                <h3>Rapor Şablonu</h3>
+                
+                <div class="col50 colleft">
+                    <div class="col50 colleft">
+                        <div class="wd50">
+                            <label name="fileName">File name</label>
+                            <input placeholder="File name" type="text"id="fileName"name="fileName" required autofocus>
+                        </div>
+                        <div class="wd50">
+                            <label name="">Unique registration ID</label>
+                            <input placeholder="Unique registration ID" type="text" required>
+                        </div>
+                    </div>
+                    <div class="col50 colright">
+                        <div class="wd50">
+                            <label name="">Phone number</label>
+                            <input placeholder="Phone number" type="tel" required>
+                        </div>
+                        <div class="wd50">
+                            <label name="">Patient History</label>
+                            <input placeholder="Doctor consulted" type="url" required>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col50 colright">
+                    <div class="col50 colleft">
+                        <div class="wd50">
+                            <label name="">Doctor consulted</label>
+                            <input placeholder="Doctor consulted" type="text" required>
+                        </div>
+                        <div class="wd50">
+                            <label name="">Registered</label>
+                            <select>
+                                <option value=" ">option 1</option>
+                                <option value=" ">option 2</option>
+                                <option value=" ">option 3</option>
+                                <option value=" ">option 4</option>
+                            </select> 
+                        </div>
+                    </div>
+                    <div class="col50 colright">
+                        <div class="wd50">
+                            <label name="">Clinic visited</label>
+                            <input placeholder="Clinic visited" type="text" required>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="wd100"><hr></div>
+                
+                <div class="col50 colleft">
+                    <div class="wd50">
+                        <label id="organ"name="organ">Organ</label>
+                        <select>
+                            <option value=" ">option 1</option>
+                            <option value=" ">option 2</option>
+                            <option value=" ">option 3</option>
+                            <option value=" ">option 4</option>
+                        </select> 
+                    </div>
+                    <div class="wd100">
+                        <label name="organKismi"id="organKismi">Bölge:</label>
+                        <select>
+                            <option value=" ">option 1</option>
+                            <option value=" ">option 2</option>
+                            <option value=" ">option 3</option>
+                            <option value=" ">option 4</option>
+                        </select> 
+                    </div>
+                </div>
+    
+                <div class="col50 colright">
+                    <div class="wd100">
+                        <label name="semptomlar"id="semptomlar">Semptomlar</label>
+                        <select>
+                            <option value=" ">option 1</option>
+                            <option value=" ">option 2</option>
+                            <option value=" ">option 3</option>
+                            <option value=" ">option 4</option>
+                        </select> 
+                    </div>
+                    <div class="wd100">
+                        <label name="">If yes When?</label>
+                        <select>
+                            <option value=" ">option 1</option>
+                            <option value=" ">option 2</option>
+                            <option value=" ">option 3</option>
+                            <option value=" ">option 4</option>
+                        </select> 
+                    </div>
+                </div>
+                
+                <div class="wd100"><hr></div>
+                
+                <div class="wd100">
+                    <label name="">Reason for Not Taking Treatment Or Giving less rating with DR experience</label>
+                    <p><strong>GRID Multiple selection</strong></p>
+                </div>
+    
+                <div class="wd100 question-checkbox">
+                    <div class="col50 colleft">
+                        <p>Expensive</p>
+                        <label name=""><input type="checkbox" value=""> Price</label>
+    
+                        <p>Not sufficient time</p>
+                        <label name=""><input type="checkbox" value=""> Doctor</label>
+                        <label name=""><input type="checkbox" value=""> Clinic/PRO</label>
+    
+                        <p>Was pushy/Only focused on price</p>
+                        <label name=""><input type="checkbox" value=""> Doctor</label>
+                        <label name=""><input type="checkbox" value=""> Clinic/PRO</label>
+    
+                        <p>No assurance was given</p>
+                        <label name=""><input type="checkbox" value=""> Doctor</label>
+                        <label name=""><input type="checkbox" value=""> Clinic/PRO</label>
+    
+                        <p>Long term Packages</p>
+                        <label name=""><input type="checkbox" value=""> Treatment Duration</label>
+    
+                        <p>Dint allow to meet Doctor</p>
+                        <label name=""><input type="checkbox" value=""> Clinic/PRO</label>
+    
+                        <p>Washroom</p>
+                        <label name=""><input type="checkbox" value=""> Hygiene</label>
+    
+                        <p>Treatment machines not clean</p>
+                        <label name=""><input type="checkbox" value=""> Hygiene</label>
+    
+                        <p>No proper check up by</p>
+                        <label name=""><input type="checkbox" value=""> Doctor</label>
+                    </div>
+    
+                    <div class="col50 colright">
+                        <p>No option for part payment given</p>
+                        <label name=""><input type="checkbox" value=""> Price</label>
+    
+                        <p>Questions not answered/confident</p>
+                        <label name=""><input type="checkbox" value=""> Doctor</label>
+                        <label name=""><input type="checkbox" value=""> Clinic/PRO</label>
+    
+                        <p>Rude</p>
+                        <label name=""><input type="checkbox" value=""> Doctor</label>
+                        <label name=""><input type="checkbox" value=""> Clinic/PRO</label>
+    
+                        <p>Not Satisfied in general</p>
+                        <label name=""><input type="checkbox" value=""> Doctor</label>
+                        <label name=""><input type="checkbox" value=""> Clinic/PRO</label>
+    
+                        <p>Aliment not treated at DRB</p>
+                        <label name=""><input type="checkbox" value=""> Treatment Duration</label>
+    
+                        <p>Give medicines for 2 days &amp; Ask to come later</p>
+                        <label name=""><input type="checkbox" value=""> Doctor</label>
+                        <label name=""><input type="checkbox" value=""> Clinic/PRO</label>
+    
+                        <p>Unprofessional Behavior/getup</p>
+                        <label name=""><input type="checkbox" value=""> Doctor</label>
+                        <label name=""><input type="checkbox" value=""> Clinic/PRO</label>
+    
+                        <p>Asked to Pay today or No discount</p>
+                        <label name=""><input type="checkbox" value=""> Doctor</label>
+                        <label name=""><input type="checkbox" value=""> Clinic/PRO</label>
+                        <label name=""><input type="checkbox" value=""> Discount</label>
+                    </div>
+                </div>
+    
+                <div class="col50 colleft">
+                    <div class="wd100">
+                        <label name="">Rate Overall experience (5 being Excellent &amp; 1 being lowest )</label>
+                        <select>
+                            <option value=" ">option 1</option>
+                            <option value=" ">option 2</option>
+                            <option value=" ">option 3</option>
+                            <option value=" ">option 4</option>
+                        </select> 
+                    </div>
+                </div>
+    
+                <div class="col50 colright">
+                    <div class="wd100">
+                        <label name="">Sir/ Mam if we can find a solution for your concern would you be "ok" to receive a call back? (in case of any concerns raised) </label>
+                        <select>
+                            <option value=" ">option 1</option>
+                            <option value=" ">option 2</option>
+                            <option value=" ">option 3</option>
+                            <option value=" ">option 4</option>
+                        </select> 
+                    </div>
+                </div>
+                
+                <div class="wd100"><hr></div>
+                
+                <div class="col50 colleft">
+                    <div class="wd100">
+                        <label name="">Doctor quote (to be filled only if required)</label>
+                        <textarea placeholder="Insert text here ..." required></textarea>
+                    </div>
+                </div>
+    
+                <div class="col50 colright">
+                    <div class="wd100">
+                        <label name="">Patient can pay ( to be filled only if required)</label>
+                        <textarea placeholder="Insert text here ..." required></textarea>
+                    </div>
+                </div>
+    
+                <div class="wd100">
+                    <label name="">Notes</label>
+                    <textarea placeholder="Insert text here ..." required></textarea>
+                </div>
+                <div class="wd-100 card-body p-4">
+                  <button type="button"id="addButton" class="btn btn-primary w-25 py-8 fs-4 mb-4">Add</button>
+                  <button type="button" id="okayButton"class="btn btn-secondary w-25 py-8 fs-4 mb-4">Okay</button>
+                  <button type="button" id="saveButton"class="btn btn-success w-25 py-8 fs-4 mb-4">Save</button>
+                  <!--btn btn-primary w-100 py-8 fs-4 mb-4 rounded-2-->
+                </div>
+            </form>
+            <div id="readOnlyText" contenteditable="false">
+              Rapor<br>
+          </div>
+        </div>
+    
+      </div>
+    </div>
+  </div>
+  <script src="../assets/libs/jquery/dist/jquery.min.js"></script>
+  <script src="../assets/libs/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="../assets/js/sidebarmenu.js"></script>
+  <script src="../assets/js/app.min.js"></script>
+  <script src="../assets/libs/apexcharts/dist/apexcharts.min.js"></script>
+  <script src="../assets/libs/simplebar/dist/simplebar.js"></script>
+  <script src="../assets/js/dashboard.js"></script>
+
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+        <script src="https://cdn.datatables.net/1.11.0/js/jquery.dataTables.min.js"></script>
+        <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/@turf/turf@6.3.0/turf.min.js"></script>
+        
+        <script>
+             $(document).ready(function() {
+                // Populate organ dropdown for original form
+                populateOrgans($('#organ'));
+
+                // Handle organ selection change for original form
+                $('#organ').on('change', function() {
+                    var selectedOrganId = $(this).val();
+                    if (selectedOrganId) {
+                        // Fetch organ kismi based on selected organ
+                        fetchOrganKismis(selectedOrganId, $('#organkismi'));
+                    }
+                });
+
+                // Handle organ kismi selection change for original form
+                $('#organkismi').on('change', function() {
+                    var selectedKismiId = $(this).val();
+                    if (selectedKismiId) {
+                        // Fetch semptoms based on selected organ kismi
+                        fetchSemptoms(selectedKismiId, $('#semptomlar'));
+                    }
+                });
+
+                // Function to populate organ dropdown
+                function populateOrgans(selectElement) {
+                    $.ajax({
+                        url: '/getOrgans',
+                        method: 'GET',
+                        success: function(data) {
+                            selectElement.empty(); // Clear existing options
+                            $.each(data, function(index, item) {
+                                selectElement.append($('<option>').val(item.id).text(item.organAdi));
+                            });
+                        },
+                        error: function(xhr, status, error) {
+                            console.log('Error fetching organs:', error);
+                        }
+                    });
+                }
+
+                // Function to fetch and populate organ kismi dropdown
+                function fetchOrganKismis(organId, selectElement) {
+                    $.ajax({
+                        url: '/getOrganKismis',
+                        method: 'GET',
+                        data: {
+                            organId: organId
+                        },
+                        success: function(data) {
+                            selectElement.empty(); // Clear existing options
+                            $.each(data, function(index, item) {
+                                selectElement.append($('<option>').val(item.id).text(item.kisimAdi));
+                            });
+                        },
+                        error: function(xhr, status, error) {
+                            console.log('Error fetching organ kismi:', error);
+                        }
+                    });
+                }
+
+                // Function to fetch and populate semptoms dropdown
+                function fetchSemptoms(kismiId, selectElement) {
+                    $.ajax({
+                        url: '/getSemptoms',
+                        method: 'GET',
+                        data: {
+                            organKismiId: kismiId
+                        },
+                        success: function(data) {
+                            selectElement.empty(); // Clear existing options
+                            $.each(data, function(index, item) {
+                                selectElement.append($('<option>').val(item.id).text(item.semptomAdi));
+                            });
+                        },
+                        error: function(xhr, status, error) {
+                            console.log('Error fetching semptoms:', error);
+                        }
+                    });
+                }
+
+                // Function to clone and append form fields
+                $('#addButton').click(function() {
+                    var clonedForm = $('#userForm').clone(); // Clone the form
+                    $('#formContainer').append(clonedForm); // Append the cloned form
+
+                    // Populate organ dropdown for cloned form
+                    populateOrgans(clonedForm.find('#organ'));
+
+                    // Handle organ selection change for cloned form
+                    clonedForm.find('#organ').on('change', function() {
+                        var selectedOrganId = $(this).val();
+                        if (selectedOrganId) {
+                            // Fetch organ kismi based on selected organ
+                            fetchOrganKismis(selectedOrganId, clonedForm.find('#organkismi'));
+                        }
+                    });
+
+                    // Handle organ kismi selection change for cloned form
+                    clonedForm.find('#organkismi').on('change', function() {
+                        var selectedKismiId = $(this).val();
+                        if (selectedKismiId) {
+                            // Fetch semptoms based on selected organ kismi
+                            fetchSemptoms(selectedKismiId, clonedForm.find('#semptomlar'));
+                        }
+                    });
+                });
+
+        // Function to send form data to the backend when save button is clicked
+        
+
+                $('#okayButton').click(function() {
+                    var textToAdd = '';
+                    $('#formContainer').find('form').each(function(index, form) {
+                        var selectedOrgan = $(form).find('#organ option:selected').text();
+                        var selectedOrganKismi = $(form).find('#organkismi option:selected').text();
+                        var selectedSemptom = $(form).find('#semptomlar option:selected').text();
+
+                        textToAdd += selectedOrgan + ' ' + selectedOrganKismi + ' ' + selectedSemptom + '<br>';
+                    });
+                    $('#readOnlyText').append(textToAdd);
+                });
+
+         //////////////////////////
+                // Function to send form data to the backend when save button is clicked
+                $('#saveButton').click(function() {
+                    var fileName = $('#fileName').val();
+                   // var userId = $('#userId').val();
+                    var content = $('#readOnlyText').html(); // Get the content of readOnlyText
+
+                    // Prepare data to send
+                    var data = {
+                        fileName: fileName,
+                        //userId: userId,
+                        content: content // Sending the content to be saved
+                    };
+
+                    // Make AJAX call to save the data
+                    $.ajax({
+                        url: '/saveDosyalarData',
+                        method: 'POST',
+                        contentType: 'application/json',
+                        data: JSON.stringify(data),
+                        success: function(response) {
+                            alert('Data saved successfully!');
+                            // Optionally, you can redirect to another page after saving
+                            // window.location.href = response.redirectUrl;
+                        },
+                        error: function(xhr, status, error) {
+                            console.log('Error saving data:', error);
+                        }
+                    });
+                });
+         //////////////////////////       
+            });
+                  
+        </script>
+        <style> 
+            #readOnlyText {
+                width: 150px;
+                height: 150px;
+                background-color: powderblue;
+            }
+        </style>
+</body>
+
+</html>

@@ -1,0 +1,135 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Modernize Free</title>
+  <link rel="shortcut icon" type="image/png" href="../assets/images/logos/favicon.png" />
+  <link rel="stylesheet" href="../assets/css/styles.min.css" />
+
+  <link rel="stylesheet" href="gbs.css">
+  <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.11.0/css/jquery.dataTables.min.css">
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+  integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
+  crossorigin=""/> 
+</head>
+
+<body>
+  <!--  Body Wrapper -->
+  <div class="page-wrapper" id="main-wrapper" data-layout="vertical" data-navbarbg="skin6" data-sidebartype="full"
+    data-sidebar-position="fixed" data-header-position="fixed">
+    <div
+      class="position-relative overflow-hidden radial-gradient min-vh-100 d-flex align-items-center justify-content-center">
+      <div class="d-flex align-items-center justify-content-center w-100">
+        <div class="row justify-content-center w-100">
+          <div class="col-md-8 col-lg-6 col-xxl-3">
+            <div class="card mb-0">
+              <div class="card-body">
+                <a href="./index.html" class="text-nowrap logo-img text-center d-block py-3 w-100">
+                  <img src="../assets/images/logos/dark-logo.svg" width="180" alt="">
+                </a>
+                <p class="text-center">Your Medical Needs</p>
+                <form>
+                  <div class="mb-4">
+                    <label for="firstName" class="form-label">First Name</label>
+                    <input type="text" class="form-control" name="firstName" id="firstName" aria-describedby="textHelp" required>
+                  </div>
+                  <div class="mb-4">
+                    <label for="lastName" class="form-label">Last Name</label>
+                    <input type="text" class="form-control" name="lastName"id="lastName" aria-describedby="textHelp" required>
+                  </div>
+                  <div class="mb-4">
+                    <label for="userName" class="form-label">User Name</label>
+                    <input type="text" class="form-control" name="userName" id="userName" aria-describedby="textHelp" required>
+                  </div>
+                  <div class="mb-4">
+                    <label for="password" class="form-label">Password</label>
+                    <input type="password" class="form-control" id="password" name="password" required>
+                  </div>
+                  <div class="mb-4">
+                    <label for="email" class="form-label">Email Address</label>
+                    <input type="email" class="form-control" name="email" id="email" aria-describedby="emailHelp" required>
+                  </div>
+                  
+                  <div class="mb-4">
+                    <input type="submit" class="btn btn-primary w-100 py-8 fs-4 mb-4 rounded-2"  value="Submit" >
+                  </div>
+                  <!--<a href="./index_.html" class="btn btn-primary w-100 py-8 fs-4 mb-4 rounded-2">Submit</a>
+                  -->
+                  <div class="d-flex align-items-center justify-content-center">
+                    <p class="fs-4 mb-0 fw-bold">Already have an Account?</p>
+                    <a class="text-primary fw-bold ms-2" href="./authentication-login.html">Log In</a>
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script src="../assets/libs/jquery/dist/jquery.min.js"></script>
+  <script src="../assets/libs/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+        <script src="https://cdn.datatables.net/1.11.0/js/jquery.dataTables.min.js"></script>
+        <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/@turf/turf@6.3.0/turf.min.js"></script>
+        <script>
+            $(document).ready(function () {
+            $("#userForm").on("submit", function (event) {
+                event.preventDefault();
+                var formData = {
+                    firstName: $("#firstName").val(),
+                    lastName: $("#lastName").val(),
+                    userName: $("#userName").val(),
+                    password: $("#password").val(),
+                    email: $("#email").val()
+                };
+                //alert(formData.userName);
+
+                $.ajax({
+                    method: "GET",
+                    url: "/getUserByUserName",
+                    data: { userName: formData.userName },
+                    //dataType: 'json',
+                    success: function (user) {
+                        //debugger;
+                        if (user == null || user=="") {
+                            //debugger;
+                            $.ajax({
+                                method: "POST",
+                                url: "/saveUserData",
+                                data: JSON.stringify(formData),
+                                contentType: "application/json",
+                                success: function (response) {
+                                    //debugger;   
+                                    alert("You enrolled successfully");
+                                    window.location.reload();
+                                },
+                                error: function (xhr, status, error) {
+                                    alert("Error saving data: " + error);
+                                },
+                            });
+                        } else {
+                            alert("user name is already taken");
+                        }
+                    },
+                    /*complete:function(e)
+                    {
+                        debugger;
+                    },*/
+                    error: function (xhr, status, error) {
+                        alert("Error checking userName availability: " + error);
+                    },
+                });
+            });
+        });
+
+        </script>
+
+</body>
+
+</html>
